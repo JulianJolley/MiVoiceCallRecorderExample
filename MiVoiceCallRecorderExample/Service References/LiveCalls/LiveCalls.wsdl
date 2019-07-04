@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="TryLookupCall">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="callSearch" type="tns:CallSearch" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CallSearch">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Extension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrunkID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgentID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TryLookupCallResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TryLookupCallResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="callID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TryLookupCallWithDialable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dialable" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TryLookupCallWithDialableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TryLookupCallWithDialableResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="callID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddBookMark">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="callID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddBookMarkResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecordStart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="callID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecordStartResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecordStop">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="callID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecordStopResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCallDataField">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="callID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fieldName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallDataFieldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCallDataFieldResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCallDataField">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="callID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fieldName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCallDataFieldResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetExtraCallInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="callID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExtraCallInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExtraCallInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetExtraCallInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="callID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetExtraCallInfoResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TryLookupCallSoapIn">
+    <wsdl:part name="parameters" element="tns:TryLookupCall" />
+  </wsdl:message>
+  <wsdl:message name="TryLookupCallSoapOut">
+    <wsdl:part name="parameters" element="tns:TryLookupCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="TryLookupCallWithDialableSoapIn">
+    <wsdl:part name="parameters" element="tns:TryLookupCallWithDialable" />
+  </wsdl:message>
+  <wsdl:message name="TryLookupCallWithDialableSoapOut">
+    <wsdl:part name="parameters" element="tns:TryLookupCallWithDialableResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddBookMarkSoapIn">
+    <wsdl:part name="parameters" element="tns:AddBookMark" />
+  </wsdl:message>
+  <wsdl:message name="AddBookMarkSoapOut">
+    <wsdl:part name="parameters" element="tns:AddBookMarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecordStartSoapIn">
+    <wsdl:part name="parameters" element="tns:RecordStart" />
+  </wsdl:message>
+  <wsdl:message name="RecordStartSoapOut">
+    <wsdl:part name="parameters" element="tns:RecordStartResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecordStopSoapIn">
+    <wsdl:part name="parameters" element="tns:RecordStop" />
+  </wsdl:message>
+  <wsdl:message name="RecordStopSoapOut">
+    <wsdl:part name="parameters" element="tns:RecordStopResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCallDataFieldSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCallDataField" />
+  </wsdl:message>
+  <wsdl:message name="GetCallDataFieldSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCallDataFieldResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCallDataFieldSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCallDataField" />
+  </wsdl:message>
+  <wsdl:message name="SetCallDataFieldSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCallDataFieldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExtraCallInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExtraCallInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetExtraCallInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExtraCallInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetExtraCallInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SetExtraCallInfo" />
+  </wsdl:message>
+  <wsdl:message name="SetExtraCallInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SetExtraCallInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LiveCallsSoap">
+    <wsdl:operation name="TryLookupCall">
+      <wsdl:input message="tns:TryLookupCallSoapIn" />
+      <wsdl:output message="tns:TryLookupCallSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TryLookupCallWithDialable">
+      <wsdl:input message="tns:TryLookupCallWithDialableSoapIn" />
+      <wsdl:output message="tns:TryLookupCallWithDialableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBookMark">
+      <wsdl:input message="tns:AddBookMarkSoapIn" />
+      <wsdl:output message="tns:AddBookMarkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecordStart">
+      <wsdl:input message="tns:RecordStartSoapIn" />
+      <wsdl:output message="tns:RecordStartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecordStop">
+      <wsdl:input message="tns:RecordStopSoapIn" />
+      <wsdl:output message="tns:RecordStopSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallDataField">
+      <wsdl:input message="tns:GetCallDataFieldSoapIn" />
+      <wsdl:output message="tns:GetCallDataFieldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCallDataField">
+      <wsdl:input message="tns:SetCallDataFieldSoapIn" />
+      <wsdl:output message="tns:SetCallDataFieldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExtraCallInfo">
+      <wsdl:input message="tns:GetExtraCallInfoSoapIn" />
+      <wsdl:output message="tns:GetExtraCallInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetExtraCallInfo">
+      <wsdl:input message="tns:SetExtraCallInfoSoapIn" />
+      <wsdl:output message="tns:SetExtraCallInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LiveCallsSoap" type="tns:LiveCallsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TryLookupCall">
+      <soap:operation soapAction="http://tempuri.org/TryLookupCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TryLookupCallWithDialable">
+      <soap:operation soapAction="http://tempuri.org/TryLookupCallWithDialable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBookMark">
+      <soap:operation soapAction="http://tempuri.org/AddBookMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecordStart">
+      <soap:operation soapAction="http://tempuri.org/RecordStart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecordStop">
+      <soap:operation soapAction="http://tempuri.org/RecordStop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallDataField">
+      <soap:operation soapAction="http://tempuri.org/GetCallDataField" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCallDataField">
+      <soap:operation soapAction="http://tempuri.org/SetCallDataField" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExtraCallInfo">
+      <soap:operation soapAction="http://tempuri.org/GetExtraCallInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetExtraCallInfo">
+      <soap:operation soapAction="http://tempuri.org/SetExtraCallInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LiveCallsSoap12" type="tns:LiveCallsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TryLookupCall">
+      <soap12:operation soapAction="http://tempuri.org/TryLookupCall" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TryLookupCallWithDialable">
+      <soap12:operation soapAction="http://tempuri.org/TryLookupCallWithDialable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBookMark">
+      <soap12:operation soapAction="http://tempuri.org/AddBookMark" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecordStart">
+      <soap12:operation soapAction="http://tempuri.org/RecordStart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecordStop">
+      <soap12:operation soapAction="http://tempuri.org/RecordStop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallDataField">
+      <soap12:operation soapAction="http://tempuri.org/GetCallDataField" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCallDataField">
+      <soap12:operation soapAction="http://tempuri.org/SetCallDataField" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExtraCallInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetExtraCallInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetExtraCallInfo">
+      <soap12:operation soapAction="http://tempuri.org/SetExtraCallInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LiveCalls">
+    <wsdl:port name="LiveCallsSoap" binding="tns:LiveCallsSoap">
+      <soap:address location="https://oaisys-recorder.demo.local/TracerWebServices2/LiveCalls.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LiveCallsSoap12" binding="tns:LiveCallsSoap12">
+      <soap12:address location="https://oaisys-recorder.demo.local/TracerWebServices2/LiveCalls.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
